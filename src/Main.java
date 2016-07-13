@@ -1,8 +1,5 @@
 
-import model.Usuario;
-import util.BaseDeDados;
 import view.FrmLogin;
-import view.FrmPrincipal;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -16,12 +13,9 @@ import view.FrmPrincipal;
 public class Main {
 
     public static void main(String[] args) {
-        BaseDeDados baseDeDados = new BaseDeDados();
-        Usuario usuarioAtual = null;
-        FrmPrincipal frmPrincipal = null;
-        
-        FrmLogin frmLogin = new FrmLogin(baseDeDados, usuarioAtual, frmPrincipal);
-  
+ 
+        MercadoPoo mercadoPoo = new MercadoPoo();
+        mercadoPoo.inicia();
 
 
     }

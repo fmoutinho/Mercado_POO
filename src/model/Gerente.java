@@ -15,7 +15,8 @@ public class Gerente extends Usuario {
     }
 
     public Gerente(String nome, String login, String senha) {
-        super(nome, login, senha);
+        super(nome, login, senha, true , true, true, false);
+
     }
 
 }

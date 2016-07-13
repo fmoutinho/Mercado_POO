@@ -5,8 +5,6 @@
  */
 package model;
 
-import enums.Medida;
-
 /**
  *
  * @author Fernando
@@ -14,13 +12,13 @@ import enums.Medida;
 public class Item {
 
     private Produto produto;
-    private float quantidade;
-    private Medida medida;
+    private double quantidade;
+    private double preco;
 
-    public Item(Produto produto, float quantidade, Medida medida) {
+    public Item(Produto produto, float quantidade) {
         this.produto = produto;
         this.quantidade = quantidade;
-        this.medida = medida;
+
     }
 
     public Produto getProduto() {
@@ -31,7 +29,7 @@ public class Item {
         this.produto = produto;
     }
 
-    public float getQuantidade() {
+    public double getQuantidade() {
         return quantidade;
     }
 
@@ -39,12 +37,24 @@ public class Item {
         this.quantidade = quantidade;
     }
 
-    public Medida getMedida() {
-        return medida;
+    public double getPreco() {
+        return preco;
     }
 
-    public void setMedida(Medida medida) {
-        this.medida = medida;
+    public void setPreco(double preco) {
+        this.preco = preco;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (!Item.class.isAssignableFrom(obj.getClass())) {
+            return false;
+        }
+        final Item other = (Item) obj;
+
+        return this.produto.equals(other.getProduto());
+    }
 }

@@ -10,22 +10,14 @@ import util.BaseDeDados;
 
 /**
  *
- * @author Win
+ * @author Fernando
  */
 public class FrmLogin extends javax.swing.JFrame {
 
-    /**
-     * Creates new form FrmLogin
-     *
-     * @param basedeDados
-     */
-    private BaseDeDados baseDeDados;
-    private Usuario usuario;
-    private FrmPrincipal frmPrincipal;
-
-    public FrmLogin(BaseDeDados baseDeDados, Usuario usuarioAtual, FrmPrincipal frmPrincipal) {
+    public FrmLogin() {
         initComponents();
-        inicia(baseDeDados, usuarioAtual, frmPrincipal);
+        inicia();
+
     }
 
     /**
@@ -56,12 +48,6 @@ public class FrmLogin extends javax.swing.JFrame {
         lblSenha.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblSenha.setText("Senha:");
 
-        txtLogin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtLoginActionPerformed(evt);
-            }
-        });
-
         btnLogin.setText("Login");
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -70,6 +56,11 @@ public class FrmLogin extends javax.swing.JFrame {
         });
 
         btnConsulta.setText("Consulta de Preços");
+        btnConsulta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultaActionPerformed(evt);
+            }
+        });
 
         lblWarning.setForeground(new java.awt.Color(255, 0, 0));
         lblWarning.setText("Login/Senha inválidos!");
@@ -130,14 +121,19 @@ public class FrmLogin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLoginActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtLoginActionPerformed
-
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        abreTelaPrincipal();
+        if (loginValido()) {
+            defineUsuarioAtual();
+            carregaPaginaPrincipal();
+        }
 
     }//GEN-LAST:event_btnLoginActionPerformed
+
+    private void btnConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultaActionPerformed
+        defineUsuarioPadrao();
+        carregaPaginaPrincipal();
+
+    }//GEN-LAST:event_btnConsultaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -186,33 +182,40 @@ public class FrmLogin extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private boolean loginValido() {
-        for (Usuario usuario : baseDeDados.listaUsuarios()) {
+        for (Usuario usuario : BaseDeDados.getInstance().listaUsuarios()) {
             if ((txtLogin.getText().equals(usuario.getLogin()) && (txtSenha.getText().equals(usuario.getSenha())))) {
-                this.usuario = usuario;
+                lblWarning.setVisible(false);
                 return true;
             }
         }
+        lblWarning.setVisible(false);
         return false;
 
     }
 
-    private void abreTelaPrincipal() {
-        if (loginValido()) {
-            frmPrincipal = new FrmPrincipal(baseDeDados, usuario);
-            this.dispose();
+    private void carregaPaginaPrincipal() {
 
-        } else {
-            lblWarning.setVisible(true);
-        }
+        FrmPrincipal frmPrincipal = new FrmPrincipal();
+        this.dispose();
     }
 
-    private void inicia(BaseDeDados baseDeDados, Usuario usuarioAtual, FrmPrincipal frmPrincipal) {
+    private void inicia() {
         lblWarning.setVisible(false);
-        this.baseDeDados = baseDeDados;
-        this.usuario = usuarioAtual;
-        this.frmPrincipal = frmPrincipal;
-
         this.setVisible(true);
+    }
+
+    private void defineUsuarioAtual() {
+        for (Usuario usuario : BaseDeDados.getInstance().listaUsuarios()) {
+            if ((txtLogin.getText().equals(usuario.getLogin()) && (txtSenha.getText().equals(usuario.getSenha())))) {
+                BaseDeDados.getInstance().setUsuarioAtual(usuario);
+                break;
+            }
+        }
+
+    }
+
+    private void defineUsuarioPadrao() {
+        BaseDeDados.getInstance().setUsuarioAtual(new Usuario(null, null, null, true, false, false, false));
     }
 
 }

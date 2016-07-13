@@ -11,7 +11,7 @@ package enums;
  */
 public enum Medida {
 
-    PESO("Peso"),
+    QUILO("Quilo"),
     UNIDADE("Unidade");
 
     private final String medida;

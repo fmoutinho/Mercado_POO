@@ -15,7 +15,7 @@ public class Funcionario extends Usuario {
     }
 
     public Funcionario(String nome, String login, String senha) {
-        super(nome, login, senha);
+        super(nome, login, senha, true, false, false, true);
     }
 
 }

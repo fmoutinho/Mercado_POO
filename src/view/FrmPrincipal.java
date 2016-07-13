@@ -5,26 +5,22 @@
  */
 package view;
 
-import model.Funcionario;
-import model.Gerente;
-import model.Usuario;
+import java.awt.CardLayout;
 import util.BaseDeDados;
 
 /**
  *
- * @author Win
+ * @author Fernandonando
  */
 public class FrmPrincipal extends javax.swing.JFrame {
 
     /**
      * Creates new form FrmPrincipal
      */
-    private BaseDeDados baseDeDados;
-    private Usuario usuario;
-
-    public FrmPrincipal(BaseDeDados baseDeDados, Usuario usuario) {
+    public FrmPrincipal() {
         initComponents();
-        inicia(baseDeDados, usuario);
+        inicia();
+
     }
 
     /**
@@ -41,6 +37,14 @@ public class FrmPrincipal extends javax.swing.JFrame {
         btnEstoque = new javax.swing.JButton();
         btnRelatorio = new javax.swing.JButton();
         pnlAuxiliar = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        pnlConsulta = new javax.swing.JPanel();
+        pnlConsultaPrecos1 = new view.PnlConsultaPrecos();
+        pnlVenda = new javax.swing.JPanel();
+        pnlEstoque = new javax.swing.JPanel();
+        pnlEditaEstoque1 = new view.PnlEditaEstoque();
+        pnlRelatorio = new javax.swing.JPanel();
+        pnlRelatorio1 = new view.PnlRelatorio();
         btnVenda = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -53,21 +57,96 @@ public class FrmPrincipal extends javax.swing.JFrame {
         });
 
         btnEstoque.setText("Estoque");
+        btnEstoque.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEstoqueActionPerformed(evt);
+            }
+        });
 
         btnRelatorio.setText("Relatório");
 
         pnlAuxiliar.setBackground(new java.awt.Color(255, 255, 255));
+        pnlAuxiliar.setLayout(new java.awt.CardLayout());
 
-        javax.swing.GroupLayout pnlAuxiliarLayout = new javax.swing.GroupLayout(pnlAuxiliar);
-        pnlAuxiliar.setLayout(pnlAuxiliarLayout);
-        pnlAuxiliarLayout.setHorizontalGroup(
-            pnlAuxiliarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 866, Short.MAX_VALUE)
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 918, Short.MAX_VALUE)
         );
-        pnlAuxiliarLayout.setVerticalGroup(
-            pnlAuxiliarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 502, Short.MAX_VALUE)
         );
+
+        pnlAuxiliar.add(jPanel1, "card6");
+
+        javax.swing.GroupLayout pnlConsultaLayout = new javax.swing.GroupLayout(pnlConsulta);
+        pnlConsulta.setLayout(pnlConsultaLayout);
+        pnlConsultaLayout.setHorizontalGroup(
+            pnlConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pnlConsultaPrecos1, javax.swing.GroupLayout.DEFAULT_SIZE, 918, Short.MAX_VALUE)
+        );
+        pnlConsultaLayout.setVerticalGroup(
+            pnlConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlConsultaLayout.createSequentialGroup()
+                .addComponent(pnlConsultaPrecos1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        pnlAuxiliar.add(pnlConsulta, "Consulta");
+
+        javax.swing.GroupLayout pnlVendaLayout = new javax.swing.GroupLayout(pnlVenda);
+        pnlVenda.setLayout(pnlVendaLayout);
+        pnlVendaLayout.setHorizontalGroup(
+            pnlVendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 918, Short.MAX_VALUE)
+        );
+        pnlVendaLayout.setVerticalGroup(
+            pnlVendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 502, Short.MAX_VALUE)
+        );
+
+        pnlAuxiliar.add(pnlVenda, "Venda");
+
+        javax.swing.GroupLayout pnlEstoqueLayout = new javax.swing.GroupLayout(pnlEstoque);
+        pnlEstoque.setLayout(pnlEstoqueLayout);
+        pnlEstoqueLayout.setHorizontalGroup(
+            pnlEstoqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlEstoqueLayout.createSequentialGroup()
+                .addComponent(pnlEditaEstoque1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        pnlEstoqueLayout.setVerticalGroup(
+            pnlEstoqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pnlEditaEstoque1, javax.swing.GroupLayout.DEFAULT_SIZE, 502, Short.MAX_VALUE)
+        );
+
+        pnlAuxiliar.add(pnlEstoque, "Estoque");
+
+        javax.swing.GroupLayout pnlRelatorio1Layout = new javax.swing.GroupLayout(pnlRelatorio1);
+        pnlRelatorio1.setLayout(pnlRelatorio1Layout);
+        pnlRelatorio1Layout.setHorizontalGroup(
+            pnlRelatorio1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 918, Short.MAX_VALUE)
+        );
+        pnlRelatorio1Layout.setVerticalGroup(
+            pnlRelatorio1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 502, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout pnlRelatorioLayout = new javax.swing.GroupLayout(pnlRelatorio);
+        pnlRelatorio.setLayout(pnlRelatorioLayout);
+        pnlRelatorioLayout.setHorizontalGroup(
+            pnlRelatorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pnlRelatorio1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        pnlRelatorioLayout.setVerticalGroup(
+            pnlRelatorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pnlRelatorio1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        pnlAuxiliar.add(pnlRelatorio, "Relatorio");
 
         btnVenda.setText("Venda");
 
@@ -97,7 +176,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
                 .addComponent(btnEstoque, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnRelatorio, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(225, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(pnlPrincipalLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(pnlAuxiliar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -119,9 +198,15 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultaActionPerformed
-//        pnlAuxiliar = new pnlConsultaPrecos();
-        pnlAuxiliar.add(new pnlConsultaPrecos());
+        CardLayout card = (CardLayout) pnlAuxiliar.getLayout();
+        card.show(pnlAuxiliar, "Consulta");
+
     }//GEN-LAST:event_btnConsultaActionPerformed
+
+    private void btnEstoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEstoqueActionPerformed
+        CardLayout card = (CardLayout) pnlAuxiliar.getLayout();
+        card.show(pnlAuxiliar, "Estoque");
+    }//GEN-LAST:event_btnEstoqueActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -129,39 +214,31 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnEstoque;
     private javax.swing.JButton btnRelatorio;
     private javax.swing.JButton btnVenda;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel pnlAuxiliar;
+    private javax.swing.JPanel pnlConsulta;
+    private view.PnlConsultaPrecos pnlConsultaPrecos1;
+    private view.PnlEditaEstoque pnlEditaEstoque1;
+    private javax.swing.JPanel pnlEstoque;
     private javax.swing.JPanel pnlPrincipal;
+    private javax.swing.JPanel pnlRelatorio;
+    private view.PnlRelatorio pnlRelatorio1;
+    private javax.swing.JPanel pnlVenda;
     // End of variables declaration//GEN-END:variables
 
-    private void inicia(BaseDeDados baseDeDados, Usuario usuario) {
-        this.baseDeDados = baseDeDados;
-        this.usuario = usuario;
+    private void inicia() {
+
         preparaTela();
 
         this.setVisible(true);
-
     }
 
     private void preparaTela() {
-        desabilitaBotoes();
-        preparaBotoes();
-    }
 
-    private void preparaBotoes() {
-        if (usuario instanceof Funcionario) {
-            btnVenda.setEnabled(true);
-        }
-        if (usuario instanceof Gerente) {
-            btnEstoque.setEnabled(true);
-            btnRelatorio.setEnabled(true);
-            btnVenda.setEnabled(true);
-        }
-    }
-
-    private void desabilitaBotoes() {
-        btnEstoque.setEnabled(false);
-        btnRelatorio.setEnabled(false);
-        btnVenda.setEnabled(false);
+        btnConsulta.setEnabled(BaseDeDados.getInstance().getUsuarioAtual().isRealizaConsulta());
+        btnEstoque.setEnabled(BaseDeDados.getInstance().getUsuarioAtual().isEditaEstoque());
+        btnRelatorio.setEnabled(BaseDeDados.getInstance().getUsuarioAtual().isGeraRelatorio());
+        btnVenda.setEnabled(BaseDeDados.getInstance().getUsuarioAtual().isRealizaVenda());
     }
 
 }

@@ -62,16 +62,25 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Edita/Exclui Produtos"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEditaProdutoActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnCriaEstoque">
       <Properties>
         <Property name="text" type="java.lang.String" value="Cadastrar Estoque de Produto"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCriaEstoqueActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnEditaEstoque">
       <Properties>
         <Property name="text" type="java.lang.String" value="Editar/Excluir Estoque"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEditaEstoqueActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

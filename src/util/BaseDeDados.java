@@ -162,11 +162,26 @@ public class BaseDeDados {
     }
 
     public void editaEstoque(Item itemEstoque) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
     }
-    
-    public void excluiEstoque(Item itemEstoque){
+
+    public void excluiEstoque(Item itemEstoque) {
         estoque.remove(itemEstoque);
     }
 
+    public Set<Produto> getProdutosSemEstoque() {
+        Set<Produto> resultado = new HashSet<>();
+        for (Produto aux : produtos) {
+            boolean deveInserir = true;
+            for (Item itemAux : estoque) {
+                if (itemAux.getProduto().equals(aux)) {
+                    deveInserir = false;
+                }
+            }
+            if (deveInserir) {
+                resultado.add(aux);
+            }
+        }
+        return resultado;
+    }
 }

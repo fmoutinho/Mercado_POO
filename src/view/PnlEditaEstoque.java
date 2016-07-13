@@ -41,10 +41,25 @@ public class PnlEditaEstoque extends javax.swing.JPanel {
         });
 
         btnEditaProduto.setText("Edita/Exclui Produtos");
+        btnEditaProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditaProdutoActionPerformed(evt);
+            }
+        });
 
         btnCriaEstoque.setText("Cadastrar Estoque de Produto");
+        btnCriaEstoque.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCriaEstoqueActionPerformed(evt);
+            }
+        });
 
         btnEditaEstoque.setText("Editar/Excluir Estoque");
+        btnEditaEstoque.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditaEstoqueActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -80,6 +95,21 @@ public class PnlEditaEstoque extends javax.swing.JPanel {
         DlgCriaProduto dlgCriaProduto = new DlgCriaProduto(null, true);
         dlgCriaProduto.setVisible(true);
     }//GEN-LAST:event_btnCriaProdutoActionPerformed
+
+    private void btnEditaProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditaProdutoActionPerformed
+        DlgEditaProduto dlgEditaProduto = new DlgEditaProduto(null, true);
+        dlgEditaProduto.setVisible(true);
+    }//GEN-LAST:event_btnEditaProdutoActionPerformed
+
+    private void btnCriaEstoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCriaEstoqueActionPerformed
+        DlgCriaEstoque dlgCriaEstoque = new DlgCriaEstoque(null, true);
+        dlgCriaEstoque.setVisible(true);
+    }//GEN-LAST:event_btnCriaEstoqueActionPerformed
+
+    private void btnEditaEstoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditaEstoqueActionPerformed
+        DlgEditaEstoque dlgEditaEstoque = new DlgEditaEstoque(null, true);
+        dlgEditaEstoque.setVisible(true);
+    }//GEN-LAST:event_btnEditaEstoqueActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

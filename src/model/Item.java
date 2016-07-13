@@ -57,4 +57,10 @@ public class Item {
 
         return this.produto.equals(other.getProduto());
     }
+
+    @Override
+    public String toString() {
+        return this.getProduto().toString();
+    }
+
 }

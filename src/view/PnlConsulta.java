@@ -5,18 +5,23 @@
  */
 package view;
 
+import enums.Medida;
+import model.Item;
+import model.Produto;
+import util.BaseDeDados;
+
 /**
  *
- * @author Win
+ * @author Fernando
  */
-public class pnlConsultaPrecos extends javax.swing.JPanel {
+public class PnlConsulta extends javax.swing.JPanel {
 
     /**
      * Creates new form pnlConsultaPrecos
      */
-    public pnlConsultaPrecos() {
+    public PnlConsulta() {
         initComponents();
-        inicia();
+        //inicia();
     }
 
     /**
@@ -29,19 +34,20 @@ public class pnlConsultaPrecos extends javax.swing.JPanel {
     private void initComponents() {
 
         lblProduto = new javax.swing.JLabel();
-        cbProdutos = new javax.swing.JComboBox();
-        jLabel1 = new javax.swing.JLabel();
+        lblNomeProduto = new javax.swing.JLabel();
         lblPreco = new javax.swing.JLabel();
         lblValor = new javax.swing.JLabel();
         lblDisponivel = new javax.swing.JLabel();
         lblValorMedida = new javax.swing.JLabel();
+        txtCodigo = new javax.swing.JTextField();
+        btnBuscar = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
         lblProduto.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblProduto.setText("Produto:");
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        lblNomeProduto.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
 
         lblPreco.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblPreco.setText("Preço:");
@@ -54,6 +60,15 @@ public class pnlConsultaPrecos extends javax.swing.JPanel {
 
         lblValorMedida.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
+        txtCodigo.setText("Insira aqui o código do produto");
+
+        btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -61,12 +76,12 @@ public class pnlConsultaPrecos extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(lblProduto)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(cbProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblProduto)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26)
+                        .addComponent(btnBuscar))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblPreco)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -74,8 +89,9 @@ public class pnlConsultaPrecos extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblDisponivel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblValorMedida, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(66, Short.MAX_VALUE))
+                        .addComponent(lblValorMedida, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblNomeProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 772, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -83,9 +99,10 @@ public class pnlConsultaPrecos extends javax.swing.JPanel {
                 .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscar))
                 .addGap(18, 18, 18)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblNomeProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(lblPreco, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
@@ -94,19 +111,30 @@ public class pnlConsultaPrecos extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(lblDisponivel, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
                     .addComponent(lblValorMedida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(291, Short.MAX_VALUE))
+                .addContainerGap(243, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+ 
+        for (Produto itemEstoque : BaseDeDados.getInstance().getProdutos()) {
+            System.out.println(itemEstoque.getNome());
+//            if (itemEstoque.getProduto().getCodigo().equals(txtCodigo.getText())) {
+//                lblNomeProduto.setText(itemEstoque.getProduto().getNome());
+//            }
+        }
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox cbProdutos;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton btnBuscar;
     private javax.swing.JLabel lblDisponivel;
+    private javax.swing.JLabel lblNomeProduto;
     private javax.swing.JLabel lblPreco;
     private javax.swing.JLabel lblProduto;
     private javax.swing.JLabel lblValor;
     private javax.swing.JLabel lblValorMedida;
+    private javax.swing.JTextField txtCodigo;
     // End of variables declaration//GEN-END:variables
 
     private void inicia() {

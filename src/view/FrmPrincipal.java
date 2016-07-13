@@ -39,7 +39,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         pnlAuxiliar = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         pnlConsulta = new javax.swing.JPanel();
-        pnlConsultaPrecos1 = new view.PnlConsultaPrecos();
+        pnlConsulta1 = new view.PnlConsulta();
         pnlVenda = new javax.swing.JPanel();
         pnlEstoque = new javax.swing.JPanel();
         pnlEditaEstoque1 = new view.PnlEditaEstoque();
@@ -72,7 +72,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 918, Short.MAX_VALUE)
+            .addGap(0, 1028, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -85,13 +85,17 @@ public class FrmPrincipal extends javax.swing.JFrame {
         pnlConsulta.setLayout(pnlConsultaLayout);
         pnlConsultaLayout.setHorizontalGroup(
             pnlConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlConsultaPrecos1, javax.swing.GroupLayout.DEFAULT_SIZE, 918, Short.MAX_VALUE)
+            .addGroup(pnlConsultaLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(pnlConsulta1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(196, Short.MAX_VALUE))
         );
         pnlConsultaLayout.setVerticalGroup(
             pnlConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlConsultaLayout.createSequentialGroup()
-                .addComponent(pnlConsultaPrecos1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(pnlConsulta1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         pnlAuxiliar.add(pnlConsulta, "Consulta");
@@ -100,7 +104,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         pnlVenda.setLayout(pnlVendaLayout);
         pnlVendaLayout.setHorizontalGroup(
             pnlVendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 918, Short.MAX_VALUE)
+            .addGap(0, 1028, Short.MAX_VALUE)
         );
         pnlVendaLayout.setVerticalGroup(
             pnlVendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -128,7 +132,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         pnlRelatorio1.setLayout(pnlRelatorio1Layout);
         pnlRelatorio1Layout.setHorizontalGroup(
             pnlRelatorio1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 918, Short.MAX_VALUE)
+            .addGap(0, 1028, Short.MAX_VALUE)
         );
         pnlRelatorio1Layout.setVerticalGroup(
             pnlRelatorio1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -217,7 +221,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel pnlAuxiliar;
     private javax.swing.JPanel pnlConsulta;
-    private view.PnlConsultaPrecos pnlConsultaPrecos1;
+    private view.PnlConsulta pnlConsulta1;
     private view.PnlEditaEstoque pnlEditaEstoque1;
     private javax.swing.JPanel pnlEstoque;
     private javax.swing.JPanel pnlPrincipal;

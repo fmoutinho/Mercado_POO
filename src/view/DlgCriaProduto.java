@@ -6,6 +6,7 @@
 package view;
 
 import enums.Medida;
+import model.Produto;
 import util.BaseDeDados;
 
 /**
@@ -128,8 +129,10 @@ public class DlgCriaProduto extends javax.swing.JDialog {
     private void btnCriarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCriarActionPerformed
         if ((!txtCodigo.getText().equals("")) && (!txtNome.getText().equals(""))) {
             BaseDeDados.getInstance().insereProduto(txtNome.getText(), txtCodigo.getText(), Float.parseFloat(txtPreco.getText()), (Medida) cbMedida.getSelectedItem());
+
             this.dispose();
         }
+
     }//GEN-LAST:event_btnCriarActionPerformed
 
 

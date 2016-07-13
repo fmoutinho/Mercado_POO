@@ -41,11 +41,13 @@ public class FrmPrincipal extends javax.swing.JFrame {
         pnlConsulta = new javax.swing.JPanel();
         pnlConsulta1 = new view.PnlConsulta();
         pnlVenda = new javax.swing.JPanel();
+        pnlVenda1 = new view.PnlVenda();
         pnlEstoque = new javax.swing.JPanel();
         pnlEditaEstoque1 = new view.PnlEditaEstoque();
         pnlRelatorio = new javax.swing.JPanel();
         pnlRelatorio1 = new view.PnlRelatorio();
         btnVenda = new javax.swing.JButton();
+        btTrocaUsuario = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -72,11 +74,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1028, Short.MAX_VALUE)
+            .addGap(0, 1021, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 502, Short.MAX_VALUE)
+            .addGap(0, 508, Short.MAX_VALUE)
         );
 
         pnlAuxiliar.add(jPanel1, "card6");
@@ -88,14 +90,14 @@ public class FrmPrincipal extends javax.swing.JFrame {
             .addGroup(pnlConsultaLayout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addComponent(pnlConsulta1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(196, Short.MAX_VALUE))
+                .addContainerGap(189, Short.MAX_VALUE))
         );
         pnlConsultaLayout.setVerticalGroup(
             pnlConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlConsultaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(pnlConsulta1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         pnlAuxiliar.add(pnlConsulta, "Consulta");
@@ -104,11 +106,16 @@ public class FrmPrincipal extends javax.swing.JFrame {
         pnlVenda.setLayout(pnlVendaLayout);
         pnlVendaLayout.setHorizontalGroup(
             pnlVendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1028, Short.MAX_VALUE)
+            .addGroup(pnlVendaLayout.createSequentialGroup()
+                .addComponent(pnlVenda1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 391, Short.MAX_VALUE))
         );
         pnlVendaLayout.setVerticalGroup(
             pnlVendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 502, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlVendaLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(pnlVenda1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pnlAuxiliar.add(pnlVenda, "Venda");
@@ -123,7 +130,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         );
         pnlEstoqueLayout.setVerticalGroup(
             pnlEstoqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlEditaEstoque1, javax.swing.GroupLayout.DEFAULT_SIZE, 502, Short.MAX_VALUE)
+            .addComponent(pnlEditaEstoque1, javax.swing.GroupLayout.DEFAULT_SIZE, 508, Short.MAX_VALUE)
         );
 
         pnlAuxiliar.add(pnlEstoque, "Estoque");
@@ -132,11 +139,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
         pnlRelatorio1.setLayout(pnlRelatorio1Layout);
         pnlRelatorio1Layout.setHorizontalGroup(
             pnlRelatorio1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1028, Short.MAX_VALUE)
+            .addGap(0, 1021, Short.MAX_VALUE)
         );
         pnlRelatorio1Layout.setVerticalGroup(
             pnlRelatorio1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 502, Short.MAX_VALUE)
+            .addGap(0, 508, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout pnlRelatorioLayout = new javax.swing.GroupLayout(pnlRelatorio);
@@ -153,6 +160,18 @@ public class FrmPrincipal extends javax.swing.JFrame {
         pnlAuxiliar.add(pnlRelatorio, "Relatorio");
 
         btnVenda.setText("Venda");
+        btnVenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVendaActionPerformed(evt);
+            }
+        });
+
+        btTrocaUsuario.setText("Trocar Usuario");
+        btTrocaUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btTrocaUsuarioActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlPrincipalLayout = new javax.swing.GroupLayout(pnlPrincipal);
         pnlPrincipal.setLayout(pnlPrincipalLayout);
@@ -163,10 +182,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
                 .addGroup(pnlPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(btnEstoque, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnConsulta, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnRelatorio, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)
-                    .addComponent(btnVenda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnRelatorio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnVenda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btTrocaUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(pnlAuxiliar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(pnlAuxiliar, javax.swing.GroupLayout.DEFAULT_SIZE, 1021, Short.MAX_VALUE)
                 .addContainerGap())
         );
         pnlPrincipalLayout.setVerticalGroup(
@@ -180,6 +200,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
                 .addComponent(btnEstoque, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnRelatorio, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btTrocaUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(pnlPrincipalLayout.createSequentialGroup()
                 .addContainerGap()
@@ -212,8 +234,19 @@ public class FrmPrincipal extends javax.swing.JFrame {
         card.show(pnlAuxiliar, "Estoque");
     }//GEN-LAST:event_btnEstoqueActionPerformed
 
+    private void btTrocaUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btTrocaUsuarioActionPerformed
+        FrmLogin frmLogin = new FrmLogin();
+        this.dispose();
+    }//GEN-LAST:event_btTrocaUsuarioActionPerformed
+
+    private void btnVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendaActionPerformed
+         CardLayout card = (CardLayout) pnlAuxiliar.getLayout();
+        card.show(pnlAuxiliar, "Venda");
+    }//GEN-LAST:event_btnVendaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btTrocaUsuario;
     private javax.swing.JButton btnConsulta;
     private javax.swing.JButton btnEstoque;
     private javax.swing.JButton btnRelatorio;
@@ -228,6 +261,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel pnlRelatorio;
     private view.PnlRelatorio pnlRelatorio1;
     private javax.swing.JPanel pnlVenda;
+    private view.PnlVenda pnlVenda1;
     // End of variables declaration//GEN-END:variables
 
     private void inicia() {

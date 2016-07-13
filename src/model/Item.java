@@ -60,7 +60,7 @@ public class Item {
 
     @Override
     public String toString() {
-        return this.getProduto().toString();
+        return this.getProduto().toString() + "    " + quantidade + "    " + preco;
     }
 
 }

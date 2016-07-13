@@ -5,8 +5,9 @@
  */
 package model;
 
-import java.util.Collection;
 import enums.FormaPagamento;
+import java.util.List;
+import util.BaseDeDados;
 
 /**
  *
@@ -14,14 +15,16 @@ import enums.FormaPagamento;
  */
 public class Venda {
 
-    private Funcionario funcionario;
+    private int numero;
+    private Usuario funcionario;
     private Caixa caixa;
-    private Collection<Item> itens;
+    private List<Item> itens;
     private FormaPagamento formaPagamento;
     private double valorPago;
     private double troco;
 
-    public Venda(Funcionario funcionario, Caixa caixa, Collection<Item> itens, FormaPagamento formaPagamento, double valorPago, double troco) {
+    public Venda(Funcionario funcionario, Caixa caixa, List<Item> itens, FormaPagamento formaPagamento, double valorPago, double troco) {
+        this.numero = BaseDeDados.getInstance().getVendas().size() + 1;
         this.funcionario = funcionario;
         this.caixa = caixa;
         this.itens = itens;
@@ -30,11 +33,15 @@ public class Venda {
         this.troco = troco;
     }
 
-    public Funcionario getFuncionario() {
+    public Venda() {
+
+    }
+
+    public Usuario getFuncionario() {
         return funcionario;
     }
 
-    public void setFuncionario(Funcionario funcionario) {
+    public void setFuncionario(Usuario funcionario) {
         this.funcionario = funcionario;
     }
 
@@ -46,11 +53,11 @@ public class Venda {
         this.caixa = caixa;
     }
 
-    public Collection<Item> getItens() {
+    public List<Item> getItens() {
         return itens;
     }
 
-    public void setItens(Collection<Item> itens) {
+    public void setItens(List<Item> itens) {
         this.itens = itens;
     }
 
@@ -76,6 +83,11 @@ public class Venda {
 
     public void setTroco(double troco) {
         this.troco = troco;
+    }
+
+    @Override
+    public String toString() {
+        return "Venda numero: " + numero;
     }
 
 }

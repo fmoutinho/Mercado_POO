@@ -20,7 +20,7 @@ public class DlgEditaProduto extends javax.swing.JDialog {
      * Creates new form DlgEditaProduto
      */
     private Item itemSelecionado;
-    
+
     public DlgEditaProduto(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -145,7 +145,7 @@ public class DlgEditaProduto extends javax.swing.JDialog {
 
     private void cbProdutoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cbProdutoMouseClicked
         cbProduto.removeAllItems();
-        
+
         for (Produto produto : BaseDeDados.getInstance().getProdutos()) {
             cbProduto.addItem(produto);
         }
@@ -161,16 +161,18 @@ public class DlgEditaProduto extends javax.swing.JDialog {
     }//GEN-LAST:event_cbProdutoItemStateChanged
 
     private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
-        
+
         Produto aux = new Produto(cbProduto.getSelectedItem().toString(), txtCodigo.getText(), Double.parseDouble(txtPreco.getText()), (Medida) cbMedida.getSelectedItem());
-        
+
         BaseDeDados.getInstance().editaProduto(aux);
+        this.dispose();
     }//GEN-LAST:event_btnAlterarActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
-        
+
         BaseDeDados.getInstance().excluiProduto((Produto) cbProduto.getSelectedItem());
-        
+        this.dispose();
+
     }//GEN-LAST:event_btnExcluirActionPerformed
 
 
@@ -190,9 +192,9 @@ public class DlgEditaProduto extends javax.swing.JDialog {
     private void iniciarBotoes(boolean enabled) {
         btnAlterar.setEnabled(enabled);
         btnExcluir.setEnabled(enabled);
-        
+
     }
-    
+
     private void iniciarComboMedidas() {
         cbMedida.addItem(Medida.QUILO);
         cbMedida.addItem(Medida.UNIDADE);

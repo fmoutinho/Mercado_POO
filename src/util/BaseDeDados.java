@@ -94,6 +94,13 @@ public class BaseDeDados {
         for (Produto aux : produtos) {
             if (produto.equals(aux)) {
                 produtos.remove(aux);
+                for (Item itemEstoque : estoque) {
+                    if (itemEstoque.getProduto().equals(aux)) {
+                        excluiEstoque(itemEstoque);
+                        break;
+                    }
+                    break;
+                }
             }
         }
     }
@@ -156,6 +163,10 @@ public class BaseDeDados {
 
     public void editaEstoque(Item itemEstoque) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    public void excluiEstoque(Item itemEstoque){
+        estoque.remove(itemEstoque);
     }
 
 }

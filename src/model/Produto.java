@@ -88,9 +88,7 @@ public class Produto {
         if ((this.nome == null) ? (other.nome != null) : !this.nome.equals(other.nome)) {
             return false;
         }
-        if (this.codigo != other.codigo) {
-            return false;
-        }
+
         return true;
     }
 

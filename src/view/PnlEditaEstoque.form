@@ -17,23 +17,34 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-              <Component id="btnCriaProduto" min="-2" pref="219" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
-              <Component id="btnEditaProduto" min="-2" pref="241" max="-2" attributes="0"/>
-              <EmptySpace pref="326" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="btnCriaEstoque" max="32767" attributes="0"/>
+                  <Component id="btnCriaProduto" pref="219" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace pref="86" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="btnEditaProduto" pref="241" max="32767" attributes="0"/>
+                  <Component id="btnEditaEstoque" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+          <Group type="102" attributes="0">
+              <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="btnCriaProduto" pref="113" max="32767" attributes="0"/>
+                  <Component id="btnCriaProduto" pref="127" max="32767" attributes="0"/>
                   <Component id="btnEditaProduto" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace pref="325" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="btnCriaEstoque" pref="151" max="32767" attributes="0"/>
+                  <Component id="btnEditaEstoque" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace pref="63" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -49,7 +60,17 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnEditaProduto">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jButton1"/>
+        <Property name="text" type="java.lang.String" value="Edita/Exclui Produtos"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnCriaEstoque">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Cadastrar Estoque de Produto"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnEditaEstoque">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Editar/Excluir Estoque"/>
       </Properties>
     </Component>
   </SubComponents>

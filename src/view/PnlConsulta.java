@@ -38,7 +38,7 @@ public class PnlConsulta extends javax.swing.JPanel {
         lblPreco = new javax.swing.JLabel();
         lblValor = new javax.swing.JLabel();
         lblDisponivel = new javax.swing.JLabel();
-        lblValorMedida = new javax.swing.JLabel();
+        lblQuantidade = new javax.swing.JLabel();
         txtCodigo = new javax.swing.JTextField();
         btnBuscar = new javax.swing.JButton();
 
@@ -58,7 +58,7 @@ public class PnlConsulta extends javax.swing.JPanel {
         lblDisponivel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblDisponivel.setText("Disponível:");
 
-        lblValorMedida.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblQuantidade.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         txtCodigo.setText("Insira aqui o código do produto");
 
@@ -89,7 +89,7 @@ public class PnlConsulta extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblDisponivel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblValorMedida, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lblQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(lblNomeProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 772, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -110,18 +110,25 @@ public class PnlConsulta extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(lblDisponivel, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
-                    .addComponent(lblValorMedida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lblQuantidade, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(243, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
- 
-        for (Produto itemEstoque : BaseDeDados.getInstance().getProdutos()) {
-            System.out.println(itemEstoque.getNome());
-//            if (itemEstoque.getProduto().getCodigo().equals(txtCodigo.getText())) {
-//                lblNomeProduto.setText(itemEstoque.getProduto().getNome());
-//            }
+
+        for (Produto produto : BaseDeDados.getInstance().getProdutos()) {
+            if (produto.getCodigo().equals(txtCodigo.getText())) {
+                lblNomeProduto.setText(produto.getNome());
+                lblValor.setText(String.valueOf(produto.getPreco()));
+                for (Item item : BaseDeDados.getInstance().getEstoque()) {
+                    if (item.getProduto().equals(produto)) {
+                        lblQuantidade.setText(String.valueOf(item.getQuantidade()));
+                        break;
+                    }
+                }
+                break;
+            }
         }
     }//GEN-LAST:event_btnBuscarActionPerformed
 
@@ -132,8 +139,8 @@ public class PnlConsulta extends javax.swing.JPanel {
     private javax.swing.JLabel lblNomeProduto;
     private javax.swing.JLabel lblPreco;
     private javax.swing.JLabel lblProduto;
+    private javax.swing.JLabel lblQuantidade;
     private javax.swing.JLabel lblValor;
-    private javax.swing.JLabel lblValorMedida;
     private javax.swing.JTextField txtCodigo;
     // End of variables declaration//GEN-END:variables
 

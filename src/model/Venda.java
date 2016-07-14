@@ -84,6 +84,8 @@ public class Venda {
     public void setTroco(double troco) {
         this.troco = troco;
     }
+    
+    
 
     @Override
     public String toString() {

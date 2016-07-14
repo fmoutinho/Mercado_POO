@@ -53,7 +53,7 @@ public class BaseDeDados {
         insereUsuario("Mateus Reis", "mreis", "mateusuff", Cargo.FUNCIONARIO);
         insereUsuario("Teste Gerente", "g", "g", Cargo.GERENTE);
         insereUsuario("Teste Funcionario", "f", "f", Cargo.FUNCIONARIO);
-        insereProduto("Biscoito", "POO-Bisc2016.1", 5, Medida.UNIDADE);
+        insereProduto("Biscoito", "POO2016.1-Biscoito", 5, Medida.UNIDADE);
         insereCaixa(1);
         insereCaixa(2);
         insereCaixa(3);
@@ -183,5 +183,20 @@ public class BaseDeDados {
             }
         }
         return resultado;
+    }
+
+    public void confirmaVenda(Venda venda) {
+
+        for (Item itemVenda : venda.getItens()) {
+
+            for (Item itemEstoque : estoque) {
+                if (itemVenda.getProduto().equals(itemEstoque.getProduto())) {
+                    itemEstoque.setQuantidade(itemEstoque.getQuantidade() - itemVenda.getQuantidade());
+                    break;
+                }
+            }
+
+        }
+
     }
 }

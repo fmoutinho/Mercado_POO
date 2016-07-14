@@ -141,6 +141,9 @@ public class DlgConfirmaPagamento extends javax.swing.JDialog {
             txtValorPago.setText(txtPrecoTotal.getText());
             txtTroco.setText("0");
 
+        } else {
+            txtValorPago.setText("");
+            txtTroco.setText("");
         }
 
     }//GEN-LAST:event_cbPagamentoItemStateChanged
@@ -152,7 +155,7 @@ public class DlgConfirmaPagamento extends javax.swing.JDialog {
             this.venda.setValorPago(Double.parseDouble(txtValorPago.getText()));
             this.venda.setTroco(Double.parseDouble(txtTroco.getText()));
             BaseDeDados.getInstance().getVendas().add(venda);
-            System.out.println("Cadastrou , é gol , passou nessa porra!");
+              
             this.dispose();
         }
     }//GEN-LAST:event_btConcluirActionPerformed
